@@ -1,0 +1,43 @@
+　
+　
+　セットアップしたもの
+　
+　
+　TortoisGitのログイン
+　Githubのログイン
+　
+　
+　Epic LuncherからUE5.5のインストール
+　
+　
+　
+　vs2022のインストール
+　　https://visualstudio.microsoft.com/ja/downloads/?cid=learn-navbar-download-cta
+　.Netデスクトップ
+　C++デスクトップ開発
+　C++ゲーム開発
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
+　
