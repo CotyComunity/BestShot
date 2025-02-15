@@ -32,5 +32,15 @@ void UMenuManager::PullGun()
 	{
 		TestUI->SetupText(true);
 	}
+}
 
+//------------------------------------------------
+// Œ‚‚Á‚½Žž‚ÌUIXV
+//------------------------------------------------
+void UMenuManager::GunShot()
+{
+	if (UTestUI* TestUI = TestUIPtr.LoadSynchronous())
+	{
+		TestUI->GunShot();
+	}
 }

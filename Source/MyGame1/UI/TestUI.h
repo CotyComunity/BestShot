@@ -9,6 +9,15 @@
 
 // 基本は前方宣言
 class UGridPanel;
+class UWidgetAnimation;
+
+enum class AnimType
+{
+	AnimIn01,
+	AnimIn02,
+	AnimShot,
+};
+
 
 /**
  * 
@@ -25,10 +34,25 @@ public:
 	// テキストの表示更新
 	void SetupText(bool IsPullGun);
 
+	// 銃を撃った時のアニメーション再生
+	void GunShot();
+
+private:
+	// アニメーション再生
+	void Play(AnimType Type);
+
 private:
 	UPROPERTY()
 	TSoftObjectPtr<UGridPanel> Tutorial1 = nullptr;
 
 	UPROPERTY()
 	TSoftObjectPtr<UGridPanel> Tutorial2 = nullptr;
+
+	// アニメーションはTransientのプロパティが必須
+	UPROPERTY(Transient, meta = (BindWidgetAnim))
+	UWidgetAnimation* In01 = nullptr;
+	UPROPERTY(Transient, meta = (BindWidgetAnim))
+	UWidgetAnimation* In02 = nullptr;
+	UPROPERTY(Transient, meta = (BindWidgetAnim))
+	UWidgetAnimation* Shot = nullptr;
 };

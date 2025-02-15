@@ -3,6 +3,9 @@
 
 #include "CharacterController.h"
 #include "Components/CapsuleComponent.h"
+#include "Components/InputComponent.h"
+#include "EnhancedInputComponent.h"
+#include "GameFramework/PlayerInput.h"
 #include "Kismet/KismetSystemLibrary.h"
 
 #include "MyGame1/UI/MenuManager.h"
@@ -46,6 +49,23 @@ void ACharacterController::SetupPlayerInputComponent(UInputComponent* PlayerInpu
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	// ‘½•ª“o˜^‚µ‚Ä‚ ‚éƒGƒ“ƒnƒ“ƒX‚©‚çŽæ“¾o—ˆ‚é
+	UPlayerInput::AddEngineDefinedActionMapping(FInputActionKeyMapping("Shooting", EKeys::LeftMouseButton));
+	PlayerInputComponent->BindAction("Shooting", IE_Pressed, this, &ACharacterController::OnGunShot);
+}
+
+//------------------------------------------------
+// ŽËŒ‚Žž
+//------------------------------------------------
+void ACharacterController::OnGunShot()
+{
+	if (!IsPullGun) {
+		return;
+	}
+	if (UMenuManager* Manager = GetWorld()->GetGameInstance()->GetSubsystem<UMenuManager>())
+	{
+		Manager->GunShot();
+	}
 }
 
 //------------------------------------------------
@@ -61,6 +81,7 @@ void ACharacterController::OnOverlapBegin(UPrimitiveComponent* OverlappedCompone
 #endif
 
 	if (OtherActor->ActorHasTag("Gun")) {
+		IsPullGun = true;
 		if (UMenuManager* Manager = GetWorld()->GetGameInstance()->GetSubsystem<UMenuManager>())
 		{
 			Manager->PullGun();
