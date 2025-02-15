@@ -1,0 +1,13 @@
+/Intermediate
+/Saved
+/.vsconfig
+/.vs
+/DerivedDataCache
+*.pdb
+*.sln
+*.dll
+*.exp
+*.lib
+*.exe
+/Binaries/Win64/UnrealEditor-Win64-DebugGame.modules
+/Binaries/Win64/MyGame1Editor-Win64-DebugGame.target
