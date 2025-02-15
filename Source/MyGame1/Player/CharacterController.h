@@ -37,10 +37,16 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+private:
+	// ËŒ‚
+	UFUNCTION()
+	void OnGunShot();
+
 	// d‚È‚Á‚½‚ÉŒÄ‚Î‚ê‚é
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
+public:
 #if TestDelegate
 #pragma region Delegate
 	// “–‚½‚è”»’è‚Ì“o˜^
@@ -48,8 +54,7 @@ public:
 #pragma endregion
 #endif
 private:
-
-
+	bool IsPullGun = false;
 
 #if TestDelegate
 #pragma region Delegate

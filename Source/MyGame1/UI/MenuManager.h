@@ -27,6 +27,8 @@ public:
 	// TestUIの更新
 	void PullGun();
 
+	// 撃った時のUI更新
+	void GunShot();
 
 private:
 	TSoftObjectPtr<class UTestUI> TestUIPtr = nullptr;
